@@ -36,7 +36,7 @@ Sem o Supabase, os pedidos vão só pelo WhatsApp. Para guardar os pedidos e vê
 
 1. Crie um projeto gratuito em https://supabase.com.
 2. No SQL Editor, rode o arquivo `supabase/schema.sql`.
-3. Em `.env.local`, preencha `NEXT_PUBLIC_SUPABASE_URL` e `SUPABASE_SERVICE_ROLE_KEY` (Project Settings > API).
+3. Em `.env.local`, preencha `NEXT_PUBLIC_SUPABASE_URL` e `SUPABASE_SECRET_KEY` (Project Settings > API Keys > Secret keys, começa com `sb_secret_`).
 4. Defina `PAINEL_USUARIO` e `PAINEL_SENHA` para acessar `/painel`.
 
 ## Próximos passos sugeridos
