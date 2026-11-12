@@ -140,7 +140,7 @@ export function Checkout() {
                 defaultValue={item.observacao ?? ""}
                 onBlur={(e) => carrinho.alterarObservacao(item.produto.id, e.target.value)}
                 maxLength={200}
-                className="flex-1 rounded-xl border border-(--border) bg-(--surface) px-3 py-1.5 text-xs focus:border-(--accent) focus:outline-none"
+                className="flex-1 rounded-xl border border-(--border) bg-(--surface) px-3 py-1.5 text-base focus:border-(--accent) focus:outline-none"
               />
             </div>
           </li>
