@@ -1,4 +1,5 @@
 /* src/components/landing/store-preview.tsx */
+import Image from "next/image";
 import Link from "next/link";
 import { Clock } from "@phosphor-icons/react/dist/ssr";
 import { lojas } from "@/data/lojas";
@@ -28,10 +29,22 @@ export function StorePreview() {
                 href={`/loja/${loja.slug}`}
                 className="block overflow-hidden rounded-2xl border border-(--border) bg-white transition-all hover:border-(--accent) hover:shadow-sm"
               >
-                <div className="flex h-20 items-center justify-center bg-(--accent)">
-                  <span className="font-heading text-4xl font-bold text-white/90 select-none">
-                    {loja.nome[0]}
-                  </span>
+                <div className="relative h-24 w-full overflow-hidden bg-(--surface)">
+                  {loja.imagem ? (
+                    <Image
+                      src={loja.imagem}
+                      alt={loja.nome}
+                      fill
+                      sizes="(min-width: 768px) 33vw, 50vw"
+                      className="object-cover"
+                    />
+                  ) : (
+                    <div className="flex h-full items-center justify-center bg-(--accent)">
+                      <span className="font-heading text-4xl font-bold text-white/90 select-none">
+                        {loja.nome[0]}
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <div className="p-3">
                   <p className="font-heading text-sm font-semibold text-(--text-primary) truncate">
