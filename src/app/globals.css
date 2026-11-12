@@ -1,23 +1,26 @@
+/* src/app/globals.css */
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-nunito);
-  --font-heading: var(--font-rubik);
+  --font-sans:    var(--font-inter);
+  --font-heading: var(--font-jakarta);
 }
 
 :root {
-  --color-primary:   #EA580C;
-  --color-secondary: #F97316;
-  --color-bg:        #FFF7ED;
-  --color-card:      #FFFFFF;
-  --color-text:      #0F172A;
-  --color-muted:     #64748B;
-  --color-border:    #FCEAE1;
-  --color-accent:    #2563EB;
+  --background:   #FFFFFF;
+  --surface:      #F8F9FA;
+  --border:       #E5E7EB;
+  --text-primary: #0A0A0A;
+  --text-muted:   #6B7280;
+  --accent:       #7C3AED;
+  --accent-hover: #6D28D9;
+  --accent-light: #EDE9FE;
+  --price:        #F59E0B;
+  --dark:         #0A0A0A;
 }
 
-body {
-  background-color: #FFF7ED;
+html {
+  scroll-behavior: smooth;
 }
 
 .scrollbar-none {
