@@ -10,12 +10,6 @@ export function LandingHero() {
     >
       <div className="mx-auto w-full max-w-screen-lg px-4 py-24">
         <div className="mx-auto max-w-3xl text-center">
-          {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-(--border) bg-white px-3 py-1 text-xs font-medium text-(--text-muted)">
-            <span className="h-1.5 w-1.5 rounded-full bg-(--accent)" />
-            Delivery local · sem taxas de entrada
-          </div>
-
           {/* Headline */}
           <h1 className="font-heading text-6xl font-extrabold leading-none tracking-tight text-(--text-primary) md:text-8xl">
             Delivery que
