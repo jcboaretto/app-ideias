@@ -1,9 +1,28 @@
 @import "tailwindcss";
 
 @theme inline {
-  --font-sans: var(--font-geist-sans);
+  --font-sans: var(--font-nunito);
+  --font-heading: var(--font-rubik);
+}
+
+:root {
+  --color-primary:   #EA580C;
+  --color-secondary: #F97316;
+  --color-bg:        #FFF7ED;
+  --color-card:      #FFFFFF;
+  --color-text:      #0F172A;
+  --color-muted:     #64748B;
+  --color-border:    #FCEAE1;
+  --color-accent:    #2563EB;
 }
 
 body {
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  background-color: #FFF7ED;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
