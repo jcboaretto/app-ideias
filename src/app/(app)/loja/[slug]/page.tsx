@@ -32,20 +32,21 @@ export default async function PaginaLoja({
 
   return (
     <div className="space-y-6">
-      <section className="-mx-4 bg-gradient-to-br from-orange-600 to-amber-500 px-4 py-6 text-white">
+      {/* Hero banner */}
+      <section className="-mx-4 bg-[--dark] px-4 py-6 text-white">
         <h1 className="font-heading text-2xl font-bold">{loja.nome}</h1>
-        <p className="mt-1 text-sm text-orange-100">{loja.descricao}</p>
+        <p className="mt-1 text-sm text-white/70">{loja.descricao}</p>
         <div className="mt-3 flex flex-wrap gap-2">
-          <span className="flex items-center gap-1 rounded-full bg-white/20 px-2.5 py-1 text-xs">
+          <span className="flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-xs">
             <Clock size={12} aria-hidden />
             {loja.horario}
           </span>
-          <span className="flex items-center gap-1 rounded-full bg-white/20 px-2.5 py-1 text-xs">
+          <span className="flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-xs">
             <MapPin size={12} aria-hidden />
             Mín. {formatarPreco(loja.pedidoMinimo)}
           </span>
           {loja.aceitaRetirada && (
-            <span className="flex items-center gap-1 rounded-full bg-white/20 px-2.5 py-1 text-xs">
+            <span className="flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-xs">
               <CheckCircle size={12} aria-hidden />
               Aceita retirada
             </span>
@@ -53,16 +54,18 @@ export default async function PaginaLoja({
         </div>
       </section>
 
+      {/* Barra de categorias sticky */}
       <NavCategorias
         categorias={loja.categorias.map((c) => ({ id: c.id, nome: c.nome }))}
       />
 
+      {/* Seções do cardápio */}
       {loja.categorias.map((categoria) => (
         <section key={categoria.id} id={categoria.id} className="scroll-mt-32">
-          <h2 className="font-heading mb-3 text-lg font-semibold text-slate-900">
+          <h2 className="font-heading mb-3 text-lg font-semibold text-[--text-primary]">
             {categoria.nome}
           </h2>
-          <ul className="overflow-hidden overscroll-contain rounded-2xl border border-orange-100 bg-white divide-y divide-orange-50">
+          <ul className="overflow-hidden overscroll-contain rounded-2xl border border-[--border] bg-white divide-y divide-[--border]">
             {categoria.produtos.map((produto) => {
               const disponivel = produto.disponivel !== false;
               return (
@@ -70,17 +73,17 @@ export default async function PaginaLoja({
                   <div className="flex-1 min-w-0">
                     <h3
                       className={`text-sm font-semibold ${
-                        disponivel ? "text-slate-900" : "text-slate-400 line-through"
+                        disponivel ? "text-[--text-primary]" : "text-slate-400 line-through"
                       }`}
                     >
                       {produto.nome}
                     </h3>
                     {produto.descricao && (
-                      <p className="mt-0.5 line-clamp-2 text-xs text-slate-500">
+                      <p className="mt-0.5 line-clamp-2 text-xs text-[--text-muted]">
                         {produto.descricao}
                       </p>
                     )}
-                    <p className="mt-1 text-sm font-semibold text-orange-600">
+                    <p className="mt-1 text-sm font-semibold text-[--price]">
                       {formatarPreco(produto.preco)}
                     </p>
                   </div>

@@ -10,7 +10,7 @@ import { calcularPedido, formatarPreco } from "@/lib/pedido";
 import type { FormaPagamento } from "@/lib/types";
 
 const campoBase =
-  "w-full rounded-xl border border-orange-100 bg-white px-4 py-3 text-sm focus:border-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-200 transition-colors";
+  "w-full rounded-xl border border-[--border] bg-white px-4 py-3 text-sm focus:border-[--accent] focus:outline-none focus:ring-2 focus:ring-[--accent-light] transition-colors";
 
 export function Checkout() {
   const carrinho = useCarrinho();
@@ -26,13 +26,13 @@ export function Checkout() {
     return (
       <div className="flex flex-col items-center gap-4 py-16 text-center">
         <span className="text-5xl">🛒</span>
-        <h1 className="font-heading text-xl font-bold text-slate-900">
+        <h1 className="font-heading text-xl font-bold text-[--text-primary]">
           Seu carrinho está vazio
         </h1>
-        <p className="text-sm text-slate-500">Adicione itens de uma loja para fazer seu pedido.</p>
+        <p className="text-sm text-[--text-muted]">Adicione itens de uma loja para fazer seu pedido.</p>
         <Link
-          href="/"
-          className="mt-2 inline-flex items-center gap-2 rounded-xl bg-orange-600 px-6 py-3 text-sm font-semibold text-white hover:bg-orange-700 transition-colors"
+          href="/lojas"
+          className="mt-2 inline-flex items-center gap-2 rounded-xl bg-[--accent] px-6 py-3 text-sm font-semibold text-white hover:bg-[--accent-hover] transition-colors"
         >
           <ArrowLeft size={16} aria-hidden />
           Ver lojas
@@ -82,27 +82,25 @@ export function Checkout() {
 
   return (
     <div className="space-y-5 pb-4">
-      {/* Cabeçalho */}
       <div>
-        <h1 className="font-heading text-2xl font-bold text-slate-900">Seu pedido</h1>
-        <p className="text-sm text-slate-500">
+        <h1 className="font-heading text-2xl font-bold text-[--text-primary]">Seu pedido</h1>
+        <p className="text-sm text-[--text-muted]">
           em{" "}
-          <Link href={`/loja/${loja.slug}`} className="font-medium text-orange-600 hover:underline">
+          <Link href={`/loja/${loja.slug}`} className="font-medium text-[--accent] hover:underline">
             {loja.nome}
           </Link>
         </p>
       </div>
 
-      {/* Lista de itens */}
       <ul className="space-y-2">
         {calculo.itens.map((item) => (
           <li
             key={item.produto.id}
-            className="rounded-2xl border border-orange-100 bg-white p-4 space-y-3"
+            className="rounded-2xl border border-[--border] bg-white p-4 space-y-3"
           >
             <div className="flex items-start justify-between gap-3">
-              <span className="font-semibold text-sm text-slate-900">{item.produto.nome}</span>
-              <span className="font-semibold text-sm text-orange-600 shrink-0">
+              <span className="font-semibold text-sm text-[--text-primary]">{item.produto.nome}</span>
+              <span className="font-semibold text-sm text-[--price] shrink-0">
                 {formatarPreco(item.subtotal)}
               </span>
             </div>
@@ -114,7 +112,7 @@ export function Checkout() {
                   onClick={() =>
                     carrinho.alterarQuantidade(item.produto.id, item.quantidade - 1)
                   }
-                  className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-orange-200 text-orange-600 hover:border-orange-600 transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-[--border] text-[--accent] hover:border-[--accent] transition-colors"
                 >
                   {item.quantidade === 1 ? (
                     <Trash size={14} weight="bold" aria-hidden />
@@ -131,7 +129,7 @@ export function Checkout() {
                   onClick={() =>
                     carrinho.alterarQuantidade(item.produto.id, item.quantidade + 1)
                   }
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-600 text-white hover:bg-orange-700 transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-[--accent] text-white hover:bg-[--accent-hover] transition-colors"
                 >
                   <Plus size={14} weight="bold" aria-hidden />
                 </button>
@@ -142,7 +140,7 @@ export function Checkout() {
                 defaultValue={item.observacao ?? ""}
                 onBlur={(e) => carrinho.alterarObservacao(item.produto.id, e.target.value)}
                 maxLength={200}
-                className="flex-1 rounded-xl border border-orange-100 bg-orange-50 px-3 py-1.5 text-xs focus:border-orange-400 focus:outline-none"
+                className="flex-1 rounded-xl border border-[--border] bg-[--surface] px-3 py-1.5 text-xs focus:border-[--accent] focus:outline-none"
               />
             </div>
           </li>
@@ -150,32 +148,16 @@ export function Checkout() {
       </ul>
 
       <form action={enviar} className="space-y-5">
-        {/* Dados do cliente */}
-        <section className="rounded-2xl border border-orange-100 bg-white p-4 space-y-3">
-          <h2 className="font-heading font-semibold text-slate-900">Seus dados</h2>
-          <input
-            name="nome"
-            required
-            placeholder="Nome completo"
-            autoComplete="name"
-            className={campoBase}
-          />
-          <input
-            name="telefone"
-            required
-            type="tel"
-            inputMode="tel"
-            placeholder="Telefone com DDD"
-            autoComplete="tel"
-            className={campoBase}
-          />
+        <section className="rounded-2xl border border-[--border] bg-white p-4 space-y-3">
+          <h2 className="font-heading font-semibold text-[--text-primary]">Seus dados</h2>
+          <input name="nome" required placeholder="Nome completo" autoComplete="name" className={campoBase} />
+          <input name="telefone" required type="tel" inputMode="tel" placeholder="Telefone com DDD" autoComplete="tel" className={campoBase} />
         </section>
 
-        {/* Entrega */}
-        <section className="rounded-2xl border border-orange-100 bg-white p-4 space-y-3">
-          <h2 className="font-heading font-semibold text-slate-900">Entrega</h2>
+        <section className="rounded-2xl border border-[--border] bg-white p-4 space-y-3">
+          <h2 className="font-heading font-semibold text-[--text-primary]">Entrega</h2>
           {loja.aceitaRetirada && (
-            <div className="flex overflow-hidden rounded-xl border border-orange-100">
+            <div className="flex overflow-hidden rounded-xl border border-[--border]">
               {(["entrega", "retirada"] as const).map((tipo) => (
                 <button
                   key={tipo}
@@ -183,8 +165,8 @@ export function Checkout() {
                   onClick={() => setTipoEntrega(tipo)}
                   className={`flex-1 py-2.5 text-sm font-medium transition-colors ${
                     tipoEntrega === tipo
-                      ? "bg-orange-600 text-white"
-                      : "bg-white text-slate-600 hover:bg-orange-50"
+                      ? "bg-[--accent] text-white"
+                      : "bg-white text-[--text-muted] hover:bg-[--accent-light]"
                   }`}
                 >
                   {tipo === "entrega" ? "Entregar" : "Retirar no local"}
@@ -194,12 +176,7 @@ export function Checkout() {
           )}
           {tipoEntrega === "entrega" && (
             <>
-              <select
-                required
-                value={bairro}
-                onChange={(e) => setBairro(e.target.value)}
-                className={campoBase}
-              >
+              <select required value={bairro} onChange={(e) => setBairro(e.target.value)} className={campoBase}>
                 <option value="">Escolha o bairro</option>
                 {loja.bairros.map((b) => (
                   <option key={b.nome} value={b.nome}>
@@ -207,26 +184,14 @@ export function Checkout() {
                   </option>
                 ))}
               </select>
-              <input
-                name="endereco"
-                required
-                placeholder="Rua e número"
-                autoComplete="street-address"
-                inputMode="text"
-                className={campoBase}
-              />
-              <input
-                name="referencia"
-                placeholder="Ponto de referência (opcional)"
-                className={campoBase}
-              />
+              <input name="endereco" required placeholder="Rua e número" autoComplete="street-address" inputMode="text" className={campoBase} />
+              <input name="referencia" placeholder="Ponto de referência (opcional)" className={campoBase} />
             </>
           )}
         </section>
 
-        {/* Pagamento */}
-        <section className="rounded-2xl border border-orange-100 bg-white p-4 space-y-3">
-          <h2 className="font-heading font-semibold text-slate-900">Pagamento</h2>
+        <section className="rounded-2xl border border-[--border] bg-white p-4 space-y-3">
+          <h2 className="font-heading font-semibold text-[--text-primary]">Pagamento</h2>
           <div className="grid grid-cols-3 gap-2">
             {(
               [
@@ -241,8 +206,8 @@ export function Checkout() {
                 onClick={() => setPagamento(valor)}
                 className={`rounded-xl border py-2.5 text-sm font-medium transition-colors ${
                   pagamento === valor
-                    ? "border-orange-600 bg-orange-50 text-orange-700"
-                    : "border-orange-100 bg-white text-slate-600 hover:border-orange-400"
+                    ? "border-[--accent] bg-[--accent-light] text-[--accent]"
+                    : "border-[--border] bg-white text-[--text-muted] hover:border-[--accent]"
                 }`}
               >
                 {rotulo}
@@ -250,34 +215,27 @@ export function Checkout() {
             ))}
           </div>
           {pagamento === "dinheiro" && (
-            <input
-              name="troco"
-              inputMode="numeric"
-              placeholder="Troco para quanto? (opcional)"
-              className={campoBase}
-            />
+            <input name="troco" inputMode="numeric" placeholder="Troco para quanto? (opcional)" className={campoBase} />
           )}
         </section>
 
-        {/* Resumo de valores */}
-        <section className="rounded-2xl border border-orange-100 bg-white p-4 space-y-2 text-sm">
-          <div className="flex justify-between text-slate-600">
+        <section className="rounded-2xl border border-[--border] bg-white p-4 space-y-2 text-sm">
+          <div className="flex justify-between text-[--text-muted]">
             <span>Subtotal</span>
             <span>{formatarPreco(calculo.subtotal)}</span>
           </div>
           {tipoEntrega === "entrega" && (
-            <div className="flex justify-between text-slate-600">
+            <div className="flex justify-between text-[--text-muted]">
               <span>Entrega</span>
               <span>{bairro ? formatarPreco(calculo.taxaEntrega) : "— escolha o bairro"}</span>
             </div>
           )}
-          <div className="flex justify-between pt-2 border-t border-orange-100 font-bold text-base text-slate-900">
+          <div className="flex justify-between pt-2 border-t border-[--border] font-bold text-base text-[--text-primary]">
             <span>Total</span>
-            <span className="text-orange-600">{formatarPreco(calculo.total)}</span>
+            <span className="text-[--price]">{formatarPreco(calculo.total)}</span>
           </div>
         </section>
 
-        {/* Avisos */}
         {faltaMinimo && (
           <p className="rounded-xl bg-amber-50 border border-amber-200 px-4 py-3 text-sm text-amber-800">
             Pedido mínimo de {formatarPreco(loja.pedidoMinimo)}. Faltam{" "}
@@ -290,11 +248,10 @@ export function Checkout() {
           </p>
         )}
 
-        {/* Botão finalizar */}
         <button
           type="submit"
           disabled={enviando || faltaMinimo}
-          className="w-full rounded-2xl bg-orange-600 px-4 py-4 text-base font-bold text-white shadow-sm transition-all hover:bg-orange-700 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full rounded-2xl bg-[--accent] px-4 py-4 text-base font-bold text-white shadow-sm transition-all hover:bg-[--accent-hover] active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {enviando ? "Enviando..." : "Enviar pelo WhatsApp →"}
         </button>
