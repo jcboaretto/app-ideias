@@ -10,7 +10,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 border-b border-(--border) bg-white/95 backdrop-blur">
         <div className="mx-auto flex max-w-screen-lg items-center justify-between px-4 py-3">
           <Link
-            href="/lojas"
+            href="/"
             className="font-heading text-lg font-bold text-(--text-primary)"
           >
             Cuco<span className="text-(--accent)">•</span>Food
