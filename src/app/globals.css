@@ -1,5 +1,8 @@
 /* src/app/globals.css */
 @import "tailwindcss";
+@source not "../../docs";
+@source not "../../.superpowers";
+@source not "../../.claude";
 
 @theme inline {
   --font-sans:    var(--font-inter);
