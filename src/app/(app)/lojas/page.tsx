@@ -23,7 +23,7 @@ export default function Lojas() {
 
       {/* Grid de lojas */}
       <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-        {lojas.map((loja) => (
+        {lojas.map((loja, index) => (
           <li key={loja.slug}>
             <Link
               href={`/loja/${loja.slug}`}
@@ -37,6 +37,7 @@ export default function Lojas() {
                     fill
                     sizes="(min-width: 640px) 50vw, 100vw"
                     className="object-cover"
+                    priority={index === 0}
                   />
                 ) : (
                   <div className="flex h-full items-center justify-center bg-(--accent)">
