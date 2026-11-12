@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { ShoppingBag } from "@phosphor-icons/react";
 import { useCarrinho } from "@/components/carrinho-provider";
 
 export function BotaoCarrinho() {
@@ -8,9 +9,19 @@ export function BotaoCarrinho() {
   return (
     <Link
       href="/carrinho"
-      className="rounded-full bg-orange-600 px-4 py-2 text-sm font-semibold text-white hover:bg-orange-700"
+      aria-label={
+        quantidadeTotal > 0
+          ? `Carrinho, ${quantidadeTotal} ${quantidadeTotal === 1 ? "item" : "itens"}`
+          : "Carrinho"
+      }
+      className="relative flex h-10 w-10 items-center justify-center rounded-full bg-orange-600 text-white transition-colors hover:bg-orange-700"
     >
-      Carrinho{quantidadeTotal > 0 ? ` (${quantidadeTotal})` : ""}
+      <ShoppingBag size={20} weight="fill" aria-hidden />
+      {quantidadeTotal > 0 && (
+        <span className="absolute -top-1 -right-1 h-5 w-5 rounded-full border-2 border-white bg-orange-600 text-[10px] font-bold text-white flex items-center justify-center">
+          {quantidadeTotal > 9 ? "9+" : quantidadeTotal}
+        </span>
+      )}
     </Link>
   );
 }
