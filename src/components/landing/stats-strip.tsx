@@ -1,4 +1,4 @@
-﻿/* src/components/landing/stats-strip.tsx */
+/* src/components/landing/stats-strip.tsx */
 export function StatsStrip() {
   return (
     <section className="bg-(--surface) border-y border-(--border)" aria-label="Estatísticas">

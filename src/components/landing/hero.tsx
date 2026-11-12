@@ -1,4 +1,4 @@
-﻿/* src/components/landing/hero.tsx */
+/* src/components/landing/hero.tsx */
 export function LandingHero() {
   return (
     <section

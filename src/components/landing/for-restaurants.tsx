@@ -1,4 +1,4 @@
-﻿/* src/components/landing/for-restaurants.tsx */
+/* src/components/landing/for-restaurants.tsx */
 import { RocketLaunch, ChartBar, Headset } from "@phosphor-icons/react/dist/ssr";
 
 type PhosphorIcon = typeof RocketLaunch;

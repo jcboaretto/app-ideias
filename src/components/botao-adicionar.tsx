@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { Minus, Plus } from "@phosphor-icons/react";
 import { useCarrinho } from "@/components/carrinho-provider";

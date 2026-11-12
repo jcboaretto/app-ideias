@@ -1,4 +1,4 @@
-﻿/* src/app/(app)/loja/[slug]/page.tsx */
+/* src/app/(app)/loja/[slug]/page.tsx */
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CheckCircle, Clock, MapPin } from "@phosphor-icons/react/dist/ssr";

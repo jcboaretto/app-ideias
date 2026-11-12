@@ -1,4 +1,4 @@
-﻿/* src/app/(app)/painel/page.tsx */
+/* src/app/(app)/painel/page.tsx */
 import type { Metadata } from "next";
 import { connection } from "next/server";
 import { Suspense } from "react";

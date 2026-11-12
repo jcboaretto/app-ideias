@@ -1,4 +1,4 @@
-﻿/* src/components/landing/store-preview.tsx */
+/* src/components/landing/store-preview.tsx */
 import Link from "next/link";
 import { Clock } from "@phosphor-icons/react/dist/ssr";
 import { lojas } from "@/data/lojas";

@@ -1,4 +1,4 @@
-﻿/* src/components/landing/partner-cta.tsx */
+/* src/components/landing/partner-cta.tsx */
 export function PartnerCta() {
   return (
     <section className="bg-(--dark)">

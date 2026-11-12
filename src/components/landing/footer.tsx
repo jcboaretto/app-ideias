@@ -1,4 +1,4 @@
-﻿/* src/components/landing/footer.tsx */
+/* src/components/landing/footer.tsx */
 import Link from "next/link";
 
 export function LandingFooter() {

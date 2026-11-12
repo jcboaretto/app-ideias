@@ -1,4 +1,4 @@
-﻿/* src/components/landing/nav.tsx */
+/* src/components/landing/nav.tsx */
 "use client";
 
 import { useState, useEffect } from "react";

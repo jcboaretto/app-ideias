@@ -1,4 +1,4 @@
-﻿/* src/components/landing/how-it-works.tsx */
+/* src/components/landing/how-it-works.tsx */
 const steps = [
   {
     num: "01",

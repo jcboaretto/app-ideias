@@ -1,4 +1,4 @@
-﻿/* src/app/(app)/layout.tsx */
+/* src/app/(app)/layout.tsx */
 import Link from "next/link";
 import { CarrinhoProvider } from "@/components/carrinho-provider";
 import { BotaoCarrinho } from "@/components/botao-carrinho";

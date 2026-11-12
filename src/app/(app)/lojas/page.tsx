@@ -1,4 +1,4 @@
-﻿/* src/app/(app)/lojas/page.tsx */
+/* src/app/(app)/lojas/page.tsx */
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Clock, MapPin } from "@phosphor-icons/react/dist/ssr";
