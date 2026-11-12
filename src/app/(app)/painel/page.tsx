@@ -1,3 +1,4 @@
+/* src/app/(app)/painel/page.tsx */
 import type { Metadata } from "next";
 import { connection } from "next/server";
 import { Suspense } from "react";
@@ -7,7 +8,7 @@ import { formatarPreco } from "@/lib/pedido";
 import { supabaseServidor } from "@/lib/supabase";
 
 export const metadata: Metadata = {
-  title: "Painel | Peça na Cidade",
+  title: "Painel",
   robots: { index: false },
 };
 
@@ -25,7 +26,7 @@ type PedidoSalvo = {
 };
 
 const corStatus: Record<string, string> = {
-  novo: "bg-orange-100 text-orange-700",
+  novo: "bg-[--accent-light] text-[--accent]",
   preparando: "bg-amber-100 text-amber-700",
   saiu_para_entrega: "bg-blue-100 text-blue-700",
   entregue: "bg-green-100 text-green-700",
@@ -43,12 +44,8 @@ const rotuloStatus: Record<string, string> = {
 export default function Painel() {
   return (
     <div className="space-y-5">
-      <h1 className="font-heading text-2xl font-bold text-slate-900">Pedidos recentes</h1>
-      <Suspense
-        fallback={
-          <p className="text-sm text-slate-500">Carregando pedidos...</p>
-        }
-      >
+      <h1 className="font-heading text-2xl font-bold text-[--text-primary]">Pedidos recentes</h1>
+      <Suspense fallback={<p className="text-sm text-[--text-muted]">Carregando pedidos...</p>}>
         <ListaPedidos />
       </Suspense>
     </div>
@@ -62,7 +59,6 @@ async function ListaPedidos() {
     return (
       <div className="rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-800">
         O Supabase ainda não está configurado. Por enquanto os pedidos chegam só pelo WhatsApp.
-        Veja o README para conectar o banco.
       </div>
     );
   }
@@ -89,7 +85,7 @@ async function ListaPedidos() {
     return (
       <div className="flex flex-col items-center gap-3 py-16 text-center">
         <span className="text-4xl">📋</span>
-        <p className="text-sm text-slate-500">Nenhum pedido ainda.</p>
+        <p className="text-sm text-[--text-muted]">Nenhum pedido ainda.</p>
       </div>
     );
   }
@@ -99,15 +95,14 @@ async function ListaPedidos() {
       {pedidos.map((p) => (
         <li
           key={p.numero}
-          className="rounded-2xl border border-orange-100 bg-white p-4 space-y-3"
+          className="rounded-2xl border border-[--border] bg-white p-4 space-y-3"
         >
-          {/* Cabeçalho do card */}
           <div className="flex items-start justify-between gap-3">
             <div>
-              <p className="font-heading font-semibold text-slate-900">
+              <p className="font-heading font-semibold text-[--text-primary]">
                 #{p.numero} · {buscarLoja(p.loja_slug)?.nome ?? p.loja_slug}
               </p>
-              <p className="text-xs text-slate-500">
+              <p className="text-xs text-[--text-muted]">
                 {new Date(p.criado_em).toLocaleString("pt-BR", {
                   timeZone: "America/Sao_Paulo",
                 })}
@@ -121,18 +116,17 @@ async function ListaPedidos() {
               >
                 {rotuloStatus[p.status] ?? p.status}
               </span>
-              <span className="font-heading font-bold text-orange-600">
+              <span className="font-heading font-bold text-[--price]">
                 {formatarPreco(p.total)}
               </span>
             </div>
           </div>
 
-          {/* Cliente + entrega + pagamento */}
-          <div className="text-sm text-slate-700 space-y-1">
+          <div className="text-sm text-[--text-primary] space-y-1">
             <p className="font-medium">
               {p.cliente_nome} · {p.cliente_telefone}
             </p>
-            <p className="flex items-center gap-1 text-slate-500">
+            <p className="flex items-center gap-1 text-[--text-muted]">
               {p.entrega.tipo === "entrega" ? (
                 <>
                   <MapPin size={13} aria-hidden />
@@ -145,20 +139,19 @@ async function ListaPedidos() {
                 </>
               )}
             </p>
-            <p className="flex items-center gap-1 text-slate-500">
+            <p className="flex items-center gap-1 text-[--text-muted]">
               <CreditCard size={13} aria-hidden />
               {p.pagamento}
             </p>
           </div>
 
-          {/* Itens */}
-          <ul className="border-t border-orange-50 pt-3 space-y-1">
+          <ul className="border-t border-[--border] pt-3 space-y-1">
             {p.itens.map((item, idx) => (
               <li key={idx} className="flex justify-between text-sm">
-                <span className="text-slate-700">
+                <span className="text-[--text-primary]">
                   {item.quantidade}× {item.nome}
                   {item.observacao && (
-                    <span className="text-slate-400"> ({item.observacao})</span>
+                    <span className="text-[--text-muted]"> ({item.observacao})</span>
                   )}
                 </span>
               </li>

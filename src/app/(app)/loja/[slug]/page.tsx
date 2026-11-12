@@ -1,3 +1,4 @@
+/* src/app/(app)/loja/[slug]/page.tsx */
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CheckCircle, Clock, MapPin } from "@phosphor-icons/react/dist/ssr";
@@ -12,20 +13,25 @@ export function generateStaticParams() {
 
 export async function generateMetadata({
   params,
-}: PageProps<"/loja/[slug]">): Promise<Metadata> {
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
   const { slug } = await params;
   const loja = buscarLoja(slug);
-  return { title: loja ? `${loja.nome} | Peça na Cidade` : "Loja não encontrada" };
+  return { title: loja ? loja.nome : "Loja não encontrada" };
 }
 
-export default async function PaginaLoja({ params }: PageProps<"/loja/[slug]">) {
+export default async function PaginaLoja({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
   const { slug } = await params;
   const loja = buscarLoja(slug);
   if (!loja) notFound();
 
   return (
     <div className="space-y-6">
-      {/* Hero banner */}
       <section className="-mx-4 bg-gradient-to-br from-orange-600 to-amber-500 px-4 py-6 text-white">
         <h1 className="font-heading text-2xl font-bold">{loja.nome}</h1>
         <p className="mt-1 text-sm text-orange-100">{loja.descricao}</p>
@@ -47,12 +53,10 @@ export default async function PaginaLoja({ params }: PageProps<"/loja/[slug]">) 
         </div>
       </section>
 
-      {/* Barra de categorias sticky */}
       <NavCategorias
         categorias={loja.categorias.map((c) => ({ id: c.id, nome: c.nome }))}
       />
 
-      {/* Seções do cardápio */}
       {loja.categorias.map((categoria) => (
         <section key={categoria.id} id={categoria.id} className="scroll-mt-32">
           <h2 className="font-heading mb-3 text-lg font-semibold text-slate-900">

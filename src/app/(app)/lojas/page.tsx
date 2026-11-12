@@ -1,17 +1,21 @@
+/* src/app/(app)/lojas/page.tsx */
+import type { Metadata } from "next";
 import Link from "next/link";
 import { Clock, MapPin } from "@phosphor-icons/react/dist/ssr";
 import { lojas } from "@/data/lojas";
 import { formatarPreco } from "@/lib/pedido";
 
-export default function Inicio() {
+export const metadata: Metadata = { title: "Lojas" };
+
+export default function Lojas() {
   return (
     <div className="space-y-6">
       {/* Hero strip */}
-      <section className="-mx-4 bg-gradient-to-r from-orange-600 to-amber-500 px-4 py-8 text-white">
+      <section className="-mx-4 bg-[--dark] px-4 py-8 text-white">
         <h1 className="font-heading text-2xl font-bold">
           O que você quer pedir hoje?
         </h1>
-        <p className="mt-1 text-sm text-orange-100">
+        <p className="mt-1 text-sm text-white/70">
           Escolha uma loja e monte seu pedido.
         </p>
       </section>
@@ -22,24 +26,21 @@ export default function Inicio() {
           <li key={loja.slug}>
             <Link
               href={`/loja/${loja.slug}`}
-              className="block h-full overflow-hidden rounded-2xl border border-orange-100 bg-white shadow-sm transition-all hover:border-orange-400 hover:shadow-md focus-visible:outline-orange-600"
+              className="block h-full overflow-hidden rounded-2xl border border-[--border] bg-white shadow-sm transition-all hover:border-[--accent] hover:shadow-md focus-visible:outline-[--accent]"
             >
-              {/* Área de imagem — placeholder com inicial */}
-              <div className="flex h-28 items-center justify-center bg-gradient-to-br from-orange-500 to-amber-400">
+              <div className="flex h-28 items-center justify-center bg-[--accent]">
                 <span className="font-heading text-5xl font-bold text-white/90 select-none">
                   {loja.nome[0]}
                 </span>
               </div>
-
-              {/* Corpo do card */}
               <div className="p-4">
-                <h2 className="font-heading text-base font-semibold text-slate-900">
+                <h2 className="font-heading text-base font-semibold text-[--text-primary]">
                   {loja.nome}
                 </h2>
-                <p className="mt-0.5 line-clamp-2 text-sm text-slate-500">
+                <p className="mt-0.5 line-clamp-2 text-sm text-[--text-muted]">
                   {loja.descricao}
                 </p>
-                <div className="mt-3 flex flex-wrap gap-3 text-xs text-slate-500">
+                <div className="mt-3 flex flex-wrap gap-3 text-xs text-[--text-muted]">
                   <span className="flex items-center gap-1">
                     <Clock size={12} aria-hidden />
                     {loja.horario}
