@@ -1,6 +1,7 @@
 /* src/app/(app)/loja/[slug]/page.tsx */
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Image from "next/image";
 import { CheckCircle, Clock, MapPin } from "@phosphor-icons/react/dist/ssr";
 import { buscarLoja, lojas } from "@/data/lojas";
 import { formatarPreco } from "@/lib/pedido";
@@ -33,24 +34,39 @@ export default async function PaginaLoja({
   return (
     <div className="space-y-6">
       {/* Hero banner */}
-      <section className="-mx-4 bg-(--dark) px-4 py-6 text-white">
-        <h1 className="font-heading text-2xl font-bold">{loja.nome}</h1>
-        <p className="mt-1 text-sm text-white/70">{loja.descricao}</p>
-        <div className="mt-3 flex flex-wrap gap-2">
-          <span className="flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-xs">
-            <Clock size={12} aria-hidden />
-            {loja.horario}
-          </span>
-          <span className="flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-xs">
-            <MapPin size={12} aria-hidden />
-            Mín. {formatarPreco(loja.pedidoMinimo)}
-          </span>
-          {loja.aceitaRetirada && (
+      <section className="relative -mx-4 h-48 overflow-hidden sm:h-56">
+        {loja.imagem ? (
+          <Image
+            src={loja.imagem}
+            alt={loja.nome}
+            fill
+            sizes="100vw"
+            className="object-cover"
+            priority
+          />
+        ) : (
+          <div className="h-full bg-(--dark)" />
+        )}
+        <div className="absolute inset-0 bg-black/55" />
+        <div className="absolute inset-0 flex flex-col justify-end px-4 pb-5 text-white">
+          <h1 className="font-heading text-2xl font-bold drop-shadow">{loja.nome}</h1>
+          <p className="mt-1 text-sm text-white/80">{loja.descricao}</p>
+          <div className="mt-3 flex flex-wrap gap-2">
             <span className="flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-xs">
-              <CheckCircle size={12} aria-hidden />
-              Aceita retirada
+              <Clock size={12} aria-hidden />
+              {loja.horario}
             </span>
-          )}
+            <span className="flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-xs">
+              <MapPin size={12} aria-hidden />
+              Mín. {formatarPreco(loja.pedidoMinimo)}
+            </span>
+            {loja.aceitaRetirada && (
+              <span className="flex items-center gap-1 rounded-full bg-white/10 px-2.5 py-1 text-xs">
+                <CheckCircle size={12} aria-hidden />
+                Aceita retirada
+              </span>
+            )}
+          </div>
         </div>
       </section>
 
@@ -69,31 +85,29 @@ export default async function PaginaLoja({
             {categoria.produtos.map((produto) => {
               const disponivel = produto.disponivel !== false;
               return (
-                <li key={produto.id} className="flex items-center gap-4 p-4">
+                <li key={produto.id} className="flex items-center gap-3 p-4">
+                  {/* text */}
                   <div className="flex-1 min-w-0">
-                    <h3
-                      className={`text-sm font-semibold ${
-                        disponivel ? "text-(--text-primary)" : "text-slate-400 line-through"
-                      }`}
-                    >
+                    <h3 className={`text-sm font-semibold ${disponivel ? "text-(--text-primary)" : "text-slate-400 line-through"}`}>
                       {produto.nome}
                     </h3>
                     {produto.descricao && (
-                      <p className="mt-0.5 line-clamp-2 text-xs text-(--text-muted)">
-                        {produto.descricao}
-                      </p>
+                      <p className="mt-0.5 line-clamp-2 text-xs text-(--text-muted)">{produto.descricao}</p>
                     )}
-                    <p className="mt-1 text-sm font-semibold text-(--price)">
-                      {formatarPreco(produto.preco)}
-                    </p>
+                    <p className="mt-1 text-sm font-semibold text-(--price)">{formatarPreco(produto.preco)}</p>
                   </div>
+                  {/* thumbnail */}
+                  {produto.imagem && disponivel && (
+                    <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-xl">
+                      <Image src={produto.imagem} alt={produto.nome} fill sizes="80px" className="object-cover" />
+                    </div>
+                  )}
+                  {/* add button */}
                   <div className="shrink-0">
                     {disponivel ? (
                       <BotaoAdicionar lojaSlug={loja.slug} produtoId={produto.id} />
                     ) : (
-                      <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs text-slate-400">
-                        Esgotado
-                      </span>
+                      <span className="rounded-full bg-slate-100 px-2.5 py-1 text-xs text-slate-400">Esgotado</span>
                     )}
                   </div>
                 </li>
