@@ -10,7 +10,7 @@ import { calcularPedido, formatarPreco } from "@/lib/pedido";
 import type { FormaPagamento } from "@/lib/types";
 
 const campoBase =
-  "w-full rounded-xl border border-(--border) bg-white px-4 py-3 text-sm focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent-light) transition-colors";
+  "w-full rounded-xl border border-(--border) bg-white px-4 py-3 text-base focus:border-(--accent) focus:outline-none focus:ring-2 focus:ring-(--accent-light) transition-colors";
 
 export function Checkout() {
   const carrinho = useCarrinho();

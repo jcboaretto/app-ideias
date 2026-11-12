@@ -32,7 +32,7 @@ export function LandingHero() {
           </p>
 
           {/* CTAs */}
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
             <a
               href="/lojas"
               className="inline-flex items-center gap-2 rounded-xl bg-(--accent) px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-(--accent-hover)"
