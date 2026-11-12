@@ -5,6 +5,7 @@ export type Produto = {
   /** Preço em centavos, para evitar erros de arredondamento. */
   preco: number;
   disponivel?: boolean;
+  imagem?: string;
 };
 
 export type Categoria = {
@@ -31,6 +32,8 @@ export type Loja = {
   aceitaRetirada: boolean;
   bairros: Bairro[];
   categorias: Categoria[];
+  imagem?: string;
+  categoria?: string;
 };
 
 export type FormaPagamento = "pix" | "dinheiro" | "cartao";
