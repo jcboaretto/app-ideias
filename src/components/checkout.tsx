@@ -114,7 +114,7 @@ export function Checkout() {
                   onClick={() =>
                     carrinho.alterarQuantidade(item.produto.id, item.quantidade - 1)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-full border-2 border-orange-200 text-orange-600 hover:border-orange-600 transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-full border-2 border-orange-200 text-orange-600 hover:border-orange-600 transition-colors"
                 >
                   {item.quantidade === 1 ? (
                     <Trash size={14} weight="bold" aria-hidden />
@@ -131,7 +131,7 @@ export function Checkout() {
                   onClick={() =>
                     carrinho.alterarQuantidade(item.produto.id, item.quantidade + 1)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-full bg-orange-600 text-white hover:bg-orange-700 transition-colors"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-orange-600 text-white hover:bg-orange-700 transition-colors"
                 >
                   <Plus size={14} weight="bold" aria-hidden />
                 </button>

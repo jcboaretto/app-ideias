@@ -58,7 +58,7 @@ export default async function PaginaLoja({ params }: PageProps<"/loja/[slug]">) 
           <h2 className="font-heading mb-3 text-lg font-semibold text-slate-900">
             {categoria.nome}
           </h2>
-          <ul className="overflow-hidden rounded-2xl border border-orange-100 bg-white divide-y divide-orange-50">
+          <ul className="overflow-hidden overscroll-contain rounded-2xl border border-orange-100 bg-white divide-y divide-orange-50">
             {categoria.produtos.map((produto) => {
               const disponivel = produto.disponivel !== false;
               return (

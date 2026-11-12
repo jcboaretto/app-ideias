@@ -1,5 +1,6 @@
 "use client";
 
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { House, ShoppingBag, ClipboardText } from "@phosphor-icons/react";
@@ -64,7 +65,7 @@ function NavItem({
 }: {
   href: string;
   label: string;
-  icon: React.ReactNode;
+  icon: ReactNode;
   ativo: boolean;
 }) {
   return (

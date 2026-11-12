@@ -14,7 +14,7 @@ export function BotaoCarrinho() {
           ? `Carrinho, ${quantidadeTotal} ${quantidadeTotal === 1 ? "item" : "itens"}`
           : "Carrinho"
       }
-      className="relative flex h-10 w-10 items-center justify-center rounded-full bg-orange-600 text-white transition-colors hover:bg-orange-700"
+      className="relative flex h-12 w-12 items-center justify-center rounded-full bg-orange-600 text-white transition-colors hover:bg-orange-700"
     >
       <ShoppingBag size={20} weight="fill" aria-hidden />
       {quantidadeTotal > 0 && (
