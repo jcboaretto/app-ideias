@@ -1,6 +1,8 @@
 /* src/app/layout.tsx */
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "./globals.css";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -34,6 +36,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={`${jakarta.variable} ${inter.variable} h-full`}>
       <body className="min-h-full flex flex-col bg-(--background) text-(--text-primary)">
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
