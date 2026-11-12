@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { Minus, Plus } from "@phosphor-icons/react";
 import { useCarrinho } from "@/components/carrinho-provider";
@@ -22,7 +22,7 @@ export function BotaoAdicionar({
         type="button"
         aria-label="Adicionar ao carrinho"
         onClick={() => adicionar(lojaSlug, produtoId)}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-[--accent] text-white shadow-sm transition-transform active:scale-95 hover:bg-[--accent-hover]"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-(--accent) text-white shadow-sm transition-transform active:scale-95 hover:bg-(--accent-hover)"
       >
         <Plus size={20} weight="bold" aria-hidden />
       </button>
@@ -35,18 +35,18 @@ export function BotaoAdicionar({
         type="button"
         aria-label="Remover um do carrinho"
         onClick={() => alterarQuantidade(produtoId, quantidade - 1)}
-        className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-[--accent] text-[--accent] transition-transform active:scale-95 hover:bg-[--accent-light]"
+        className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-(--accent) text-(--accent) transition-transform active:scale-95 hover:bg-(--accent-light)"
       >
         <Minus size={16} weight="bold" aria-hidden />
       </button>
-      <span className="min-w-[1.25rem] text-center text-sm font-semibold text-[--text-primary]">
+      <span className="min-w-[1.25rem] text-center text-sm font-semibold text-(--text-primary)">
         {quantidade}
       </span>
       <button
         type="button"
         aria-label="Adicionar mais um ao carrinho"
         onClick={() => adicionar(lojaSlug, produtoId)}
-        className="flex h-12 w-12 items-center justify-center rounded-full bg-[--accent] text-white shadow-sm transition-transform active:scale-95 hover:bg-[--accent-hover]"
+        className="flex h-12 w-12 items-center justify-center rounded-full bg-(--accent) text-white shadow-sm transition-transform active:scale-95 hover:bg-(--accent-hover)"
       >
         <Plus size={20} weight="bold" aria-hidden />
       </button>

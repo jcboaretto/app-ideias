@@ -25,12 +25,14 @@ export default function LandingPage() {
   return (
     <>
       <LandingNav />
-      <LandingHero />
-      <StatsStrip />
-      <ForRestaurants />
-      <StorePreview />
-      <HowItWorks />
-      <PartnerCta />
+      <main>
+        <LandingHero />
+        <StatsStrip />
+        <ForRestaurants />
+        <StorePreview />
+        <HowItWorks />
+        <PartnerCta />
+      </main>
       <LandingFooter />
     </>
   );

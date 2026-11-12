@@ -1,4 +1,4 @@
-/* src/components/landing/hero.tsx */
+﻿/* src/components/landing/hero.tsx */
 export function LandingHero() {
   return (
     <section
@@ -11,22 +11,22 @@ export function LandingHero() {
       <div className="mx-auto w-full max-w-screen-lg px-4 py-24">
         <div className="max-w-3xl">
           {/* Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[--border] bg-white px-3 py-1 text-xs font-medium text-[--text-muted]">
-            <span className="h-1.5 w-1.5 rounded-full bg-[--accent]" />
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-(--border) bg-white px-3 py-1 text-xs font-medium text-(--text-muted)">
+            <span className="h-1.5 w-1.5 rounded-full bg-(--accent)" />
             Delivery local · sem taxas de entrada
           </div>
 
           {/* Headline */}
-          <h1 className="font-heading text-6xl font-extrabold leading-none tracking-tight text-[--text-primary] md:text-8xl">
+          <h1 className="font-heading text-6xl font-extrabold leading-none tracking-tight text-(--text-primary) md:text-8xl">
             Delivery que
             <br />
             respeita sua
             <br />
-            <span className="text-[--accent]">cidade.</span>
+            <span className="text-(--accent)">cidade.</span>
           </h1>
 
           {/* Subtext */}
-          <p className="mt-6 max-w-xl text-lg text-[--text-muted] md:text-xl">
+          <p className="mt-6 max-w-xl text-lg text-(--text-muted) md:text-xl">
             CucoFood conecta restaurantes locais a clientes que valorizam o que
             é de verdade.
           </p>
@@ -35,13 +35,13 @@ export function LandingHero() {
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="/lojas"
-              className="inline-flex items-center gap-2 rounded-xl bg-[--accent] px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-[--accent-hover]"
+              className="inline-flex items-center gap-2 rounded-xl bg-(--accent) px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-(--accent-hover)"
             >
               Fazer pedido →
             </a>
             <a
               href="#parceiros"
-              className="inline-flex items-center gap-2 rounded-xl border border-[--border] bg-white px-6 py-3 text-base font-semibold text-[--text-primary] transition-colors hover:border-[--accent]"
+              className="inline-flex items-center gap-2 rounded-xl border border-(--border) bg-white px-6 py-3 text-base font-semibold text-(--text-primary) transition-colors hover:border-(--accent)"
             >
               Seja parceiro
             </a>

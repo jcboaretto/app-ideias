@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import { useEffect, useState } from "react";
 
@@ -26,7 +26,7 @@ export function NavCategorias({ categorias }: { categorias: Categoria[] }) {
   return (
     <nav
       aria-label="Categorias do cardápio"
-      className="sticky top-14 z-30 -mx-4 border-b border-[--border] bg-[--background]"
+      className="sticky top-14 z-30 -mx-4 border-b border-(--border) bg-(--background)"
     >
       <div className="flex gap-2 overflow-x-auto scrollbar-none px-4 py-2">
         {categorias.map((c) => (
@@ -35,8 +35,8 @@ export function NavCategorias({ categorias }: { categorias: Categoria[] }) {
             href={`#${c.id}`}
             className={`shrink-0 rounded-full px-3 py-1 text-sm font-medium transition-colors ${
               ativa === c.id
-                ? "bg-[--accent] text-white"
-                : "border border-[--border] bg-white text-[--text-muted] hover:border-[--accent]"
+                ? "bg-(--accent) text-white"
+                : "border border-(--border) bg-white text-(--text-muted) hover:border-(--accent)"
             }`}
           >
             {c.nome}

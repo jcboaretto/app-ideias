@@ -1,7 +1,7 @@
-/* src/components/landing/partner-cta.tsx */
+﻿/* src/components/landing/partner-cta.tsx */
 export function PartnerCta() {
   return (
-    <section className="bg-[--dark]">
+    <section className="bg-(--dark)">
       <div className="mx-auto w-full max-w-screen-lg px-4 py-24 text-center">
         <h2 className="font-heading text-3xl font-extrabold text-white md:text-5xl">
           Traga seu restaurante
@@ -14,7 +14,7 @@ export function PartnerCta() {
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
           <a
             href="mailto:parceiros@cucofood.com.br"
-            className="inline-flex items-center gap-2 rounded-xl bg-[--accent] px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[--accent-hover]"
+            className="inline-flex items-center gap-2 rounded-xl bg-(--accent) px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-(--accent-hover)"
           >
             Falar com a gente →
           </a>

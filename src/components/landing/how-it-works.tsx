@@ -1,4 +1,4 @@
-/* src/components/landing/how-it-works.tsx */
+﻿/* src/components/landing/how-it-works.tsx */
 const steps = [
   {
     num: "01",
@@ -23,7 +23,7 @@ export function HowItWorks() {
       id="como-funciona"
       className="mx-auto w-full max-w-screen-lg px-4 py-20"
     >
-      <h2 className="font-heading mb-12 text-center text-3xl font-bold text-[--text-primary] md:text-4xl">
+      <h2 className="font-heading mb-12 text-center text-3xl font-bold text-(--text-primary) md:text-4xl">
         Como funciona
       </h2>
       <ol className="grid grid-cols-1 gap-10 md:grid-cols-3">
@@ -36,10 +36,10 @@ export function HowItWorks() {
             >
               {num}
             </span>
-            <h3 className="font-heading text-xl font-bold text-[--text-primary]">
+            <h3 className="font-heading text-xl font-bold text-(--text-primary)">
               {title}
             </h3>
-            <p className="text-[--text-muted]">{desc}</p>
+            <p className="text-(--text-muted)">{desc}</p>
           </li>
         ))}
       </ol>

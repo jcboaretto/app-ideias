@@ -1,4 +1,4 @@
-"use client";
+﻿"use client";
 
 import type { ReactNode } from "react";
 import Link from "next/link";
@@ -13,7 +13,7 @@ export function BottomNav() {
   return (
     <nav
       aria-label="Navegação principal"
-      className="sm:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-[--border] flex justify-around py-1"
+      className="sm:hidden fixed bottom-0 inset-x-0 z-50 bg-white border-t border-(--border) flex justify-around py-1"
     >
       <NavItem
         href="/lojas"
@@ -31,7 +31,7 @@ export function BottomNav() {
       <Link
         href="/carrinho"
         className={`relative flex flex-col items-center gap-0.5 px-5 py-2 ${
-          pathname === "/carrinho" ? "text-[--accent]" : "text-slate-500"
+          pathname === "/carrinho" ? "text-(--accent)" : "text-slate-500"
         }`}
       >
         <ShoppingBag
@@ -40,7 +40,7 @@ export function BottomNav() {
           aria-hidden
         />
         {quantidadeTotal > 0 && (
-          <span className="absolute top-1.5 right-2.5 h-4 w-4 bg-[--accent] text-white text-[9px] font-bold rounded-full flex items-center justify-center">
+          <span className="absolute top-1.5 right-2.5 h-4 w-4 bg-(--accent) text-white text-[9px] font-bold rounded-full flex items-center justify-center">
             {quantidadeTotal > 9 ? "9+" : quantidadeTotal}
           </span>
         )}
@@ -78,7 +78,7 @@ function NavItem({
     <Link
       href={href}
       className={`flex flex-col items-center gap-0.5 px-5 py-2 ${
-        ativo ? "text-[--accent]" : "text-slate-500"
+        ativo ? "text-(--accent)" : "text-slate-500"
       }`}
     >
       {icon}

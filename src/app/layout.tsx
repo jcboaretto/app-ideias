@@ -1,4 +1,4 @@
-/* src/app/layout.tsx */
+﻿/* src/app/layout.tsx */
 import type { Metadata, Viewport } from "next";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
@@ -32,7 +32,7 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${jakarta.variable} ${inter.variable} h-full`}>
-      <body className="min-h-full flex flex-col bg-[--background] text-[--text-primary]">
+      <body className="min-h-full flex flex-col bg-(--background) text-(--text-primary)">
         {children}
       </body>
     </html>
