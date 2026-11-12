@@ -9,7 +9,7 @@ export function LandingHero() {
       }}
     >
       <div className="mx-auto w-full max-w-screen-lg px-4 py-24">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-3xl text-center">
           {/* Badge */}
           <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-(--border) bg-white px-3 py-1 text-xs font-medium text-(--text-muted)">
             <span className="h-1.5 w-1.5 rounded-full bg-(--accent)" />
@@ -32,7 +32,7 @@ export function LandingHero() {
           </p>
 
           {/* CTAs */}
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:justify-center">
             <a
               href="/lojas"
               className="inline-flex items-center gap-2 rounded-xl bg-(--accent) px-6 py-3 text-base font-semibold text-white transition-colors hover:bg-(--accent-hover)"
